@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var clicked: Bool = false
     var body: some View {
-        VStack {
+        HStack {
             Image(systemName: "globe")
                 .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+                .symbolEffect(.bounce, value: clicked)
+                .padding()
         }
+        
+        Button(action: {
+            clicked.toggle()
+        }, label: {
+            Text("Click Me")
+                .font(.headline)
+                .foregroundStyle(.orange)
+                .bold()
+                .padding(.horizontal)
+                .padding()
+                .background(
+                    Color.black
+                )
+        })
         .padding()
     }
 }
